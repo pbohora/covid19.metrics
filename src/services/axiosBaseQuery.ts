@@ -2,9 +2,10 @@ import { BaseQueryFn } from '@reduxjs/toolkit/query/react';
 import { AxiosError } from 'axios';
 import axios, { AxiosInstance } from 'axios';
 import { AxiosBaseQueryArgs } from '../types/api.types';
+import { API_BASE_URL } from '../constants/apiRoutes';
 
 const axiosInstance: AxiosInstance = axios.create({
-  baseURL: '',
+  baseURL: API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },

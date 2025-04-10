@@ -6,3 +6,12 @@ export interface AxiosBaseQueryArgs {
   data?: AxiosRequestConfig['data'];
   params?: AxiosRequestConfig['params'];
 }
+
+export interface Country {
+  name: string;
+  slug: string;
+}
+
+export interface SelectedCountryState {
+  selectedCountry: Country | null;
+}
