@@ -15,3 +15,13 @@ export interface Country {
 export interface SelectedCountryState {
   selectedCountry: Country | null;
 }
+
+export interface CountryParams {
+  order?: 'iso' | 'name';
+  sort?: 'asc' | 'desc';
+}
+
+export interface CovidReportParams {
+  iso?: string;
+  date?: string;
+}

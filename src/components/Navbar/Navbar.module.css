@@ -1,0 +1,9 @@
+.navHeader {
+   box-shadow: var(--shadow-md);
+   padding: var(--space-3);
+}
+.navbar {
+   width:100%;
+   max-width: var(--max-layout-width);
+   margin: 0 auto;
+  }

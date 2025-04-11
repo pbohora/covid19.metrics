@@ -1,8 +1,7 @@
-export const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://covid19api.com';
+const apiUrl = import.meta.env.REACT_APP_BASE_URL;
 
+export const API_BASE_URL = apiUrl || 'https://covid-api.com/api';
 export const API_ROUTES = {
-  COUNTRIES_URL: '/countries',
-  SUMMARY_URL: '/summary',
-  DAYONE_URL: (slug: string) => `/dayone/country/${slug}`,
-  WORLD_TOTAL_URL: '/world/total',
+  COUNTRIES_URL: '/regions',
+  SUMMARY_TOTAL_URL: `/reports/total`,
 };
