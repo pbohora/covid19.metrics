@@ -10,7 +10,7 @@ const Dashboard: FC = () => {
   return (
     <div className="page-center">
       <div className="content">
-        <h1>Dashboard</h1>
+        <h6>Dashboard</h6>
       </div>
     </div>
   );
