@@ -3,19 +3,19 @@
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   --font-secondary: 'Georgia', 'Times New Roman', serif;
   --font-mono: 'Courier New', Courier, monospace;
-  
+
   /* Font weight variables */
   --font-weight-light: 300;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
-  
+
   /* Font size variables */
-  --font-size-xs: 0.75rem;    
-  --font-size-sm: 0.875rem;  
-  --font-size-base: 1rem;     
-  --font-size-lg: 1.125rem;  
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 0.95rem;
+  --font-size-lg: 1.125rem;
   --font-size-xl: 1.150rem;
   --font-size-2xl: 1.25rem;
   --font-size-3xl: 1.5rem;
@@ -34,15 +34,15 @@
 
   /* Spacing variables */
   --space-0: 0;
-  --space-1: 0.25rem;   /* 4px */
-  --space-2: 0.5rem;    /* 8px */
-  --space-3: 0.75rem;   /* 12px */
-  --space-4: 1rem;      /* 16px */
-  --space-5: 1.25rem;   /* 20px */
-  --space-6: 1.5rem;    /* 24px */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
 
   --max-layout-width: 100%;
-  
+
   /* Extended color palette - Light theme */
   --color-primary-50: #eff6ff;
   --color-primary-100: #dbeafe;
@@ -54,7 +54,7 @@
   --color-primary-700: #1d4ed8;
   --color-primary-800: #1e40af;
   --color-primary-900: #1e3a8a;
-  
+
   --color-secondary-50: #f5f3ff;
   --color-secondary-100: #ede9fe;
   --color-secondary-200: #ddd6fe;
@@ -65,7 +65,7 @@
   --color-secondary-700: #6d28d9;
   --color-secondary-800: #5b21b6;
   --color-secondary-900: #4c1d95;
-  
+
   --color-gray-50: #f9fafb;
   --color-gray-100: #f3f4f6;
   --color-gray-200: #e5e7eb;
@@ -76,6 +76,17 @@
   --color-gray-700: #374151;
   --color-gray-800: #1f2937;
   --color-gray-900: #111827;
+
+  --color-red-50: #fef2f2;
+  --color-red-100: #fcd5d5;
+  --color-red-200: #fdcece;
+  --color-red-300: #fda4a4;
+  --color-red-400: #f87171;
+  --color-red-500: #ef4444;
+  --color-red-600: #dc2626;
+  --color-red-700: #b91c1c;
+  --color-red-800: #991b1b;
+  --color-red-900: #7f1d1d;
 }
 
 /* Dark theme color adjustments */
@@ -90,7 +101,7 @@
   --color-primary-700: #93c5fd;
   --color-primary-800: #bfdbfe;
   --color-primary-900: #dbeafe;
-  
+
   --color-secondary-50: #2e1065;
   --color-secondary-100: #4c1d95;
   --color-secondary-200: #5b21b6;
@@ -101,7 +112,7 @@
   --color-secondary-700: #c4b5fd;
   --color-secondary-800: #ddd6fe;
   --color-secondary-900: #ede9fe;
-  
+
   --color-gray-50: #111827;
   --color-gray-100: #1f2937;
   --color-gray-200: #374151;
@@ -112,6 +123,17 @@
   --color-gray-700: #e5e7eb;
   --color-gray-800: #f3f4f6;
   --color-gray-900: #f9fafb;
+
+  --color-red-50: #7f1d1d;
+  --color-red-100: #991b1b;
+  --color-red-200: #b91c1c;
+  --color-red-300: #dc2626;
+  --color-red-400: #ef4444;
+  --color-red-500: #f87171;
+  --color-red-600: #fda4a4;
+  --color-red-700: #fdcece;
+  --color-red-800: #fcd5d5;
+  --color-red-900: #fef2f2;
 
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
@@ -129,7 +151,12 @@ body {
 }
 
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-weight: var(--font-weight-bold);
@@ -190,6 +217,14 @@ a:hover {
   margin: 0 auto;
   padding: var(--space-5) var(--space-3);
   max-width: var(--max-layout-width);
+}
+
+.page-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: var(--space-6);
 }
 
 @media (min-width: 768px) {

@@ -6,30 +6,15 @@ import { useAppDispatch, useAppSelector } from '../../hooks/storeHooks';
 import { changeThemeMode } from '../../state/theme/themeSlice';
 import { ThemeMode } from '../../types/theme.types';
 
+const themeOptions = [
+  { key: 'light', label: 'Light', value: 'light', icon: <AiFillSun /> },
+  { key: 'dark', label: 'Dark', value: 'dark', icon: <AiFillMoon /> },
+  { key: 'auto', label: 'Auto', value: 'auto', icon: <AiFillSetting /> },
+];
+
 const Navbar: FC = () => {
   const dispatch = useAppDispatch();
   const { mode } = useAppSelector((state) => state.theme);
-  console.log(mode);
-  const themeOptions = [
-    {
-      key: 'light',
-      label: 'Light',
-      value: 'light',
-      icon: <AiFillSun />,
-    },
-    {
-      key: 'dark',
-      label: 'Dark',
-      value: 'dark',
-      icon: <AiFillMoon />,
-    },
-    {
-      key: 'auto',
-      label: 'Auto',
-      value: 'auto',
-      icon: <AiFillSetting />,
-    },
-  ];
 
   return (
     <header className={styles.navHeader}>

@@ -9,7 +9,11 @@ export interface AxiosBaseQueryArgs {
 
 export interface Country {
   name: string;
-  slug: string;
+  iso: string;
+}
+
+export interface CountryResponse {
+  data: Country[];
 }
 
 export interface SelectedCountryState {
@@ -24,4 +28,22 @@ export interface CountryParams {
 export interface CovidReportParams {
   iso?: string;
   date?: string;
+}
+
+export interface CovidStat {
+  date: string;
+  last_update: string;
+  confirmed: number;
+  confirmed_diff: number;
+  deaths: number;
+  deaths_diff: number;
+  recovered: number;
+  recovered_diff: number;
+  active: number;
+  active_diff: number;
+  fatality_rate: number;
+}
+
+export interface CovidStatResponse {
+  data: CovidStat;
 }

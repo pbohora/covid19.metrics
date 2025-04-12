@@ -3,6 +3,8 @@ import { AiOutlineCaretDown, AiOutlineCaretUp } from 'react-icons/ai';
 import { DropdownProps, Option } from '../../types/Dropdown.types';
 import styles from './Dropdown.module.css';
 
+const DropdownIcon = ({ isOpen }: { isOpen: boolean }) => (isOpen ? <AiOutlineCaretUp /> : <AiOutlineCaretDown />);
+
 const Dropdown: FC<DropdownProps> = ({
   options,
   defaultOption,
@@ -17,12 +19,9 @@ const Dropdown: FC<DropdownProps> = ({
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (selected) return;
-    if (defaultOption) return setSelected(defaultOption);
-    if (options.length > 0) {
-      setSelected(options[0]);
-    }
-  }, [options, defaultOption, selected]);
+    if (selected || !options?.length) return;
+    setSelected(defaultOption || options[0]);
+  }, [options, selected, defaultOption]);
 
   const handleSelect = (option: Option) => {
     setSelected(option);
@@ -56,7 +55,7 @@ const Dropdown: FC<DropdownProps> = ({
         onKeyDown={(e) => e.key === 'Enter' && setIsOpen((prev) => !prev)}
       >
         {selected?.label || placeholder}
-        {selected?.icon || (isOpen ? <AiOutlineCaretUp /> : <AiOutlineCaretDown />)}
+        {selected?.icon || <DropdownIcon isOpen={isOpen} />}
       </div>
 
       {isOpen && (

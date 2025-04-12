@@ -1,0 +1,19 @@
+.statsWrapper {
+    display: flex;
+    gap: var(--space-4);
+    align-items: stretch;
+
+    flex-wrap: wrap;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.statItem {
+    flex: 1;
+}
