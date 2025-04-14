@@ -4,24 +4,26 @@ import { API_ROUTES } from '../../constants/apiRoutes';
 import { CovidReportParams, CovidStatResponse, CovidStatWithProvinceResponse } from '../../types/api.types';
 
 export const covidApi = createApi({
-  reducerPath: '/covid',
+  reducerPath: 'covidData',
   baseQuery: axiosBaseQuery(),
   tagTypes: ['CovidCountry', 'CovidWorld', 'CovidCountryWithProvince'],
   endpoints: (builder) => ({
-    getCovidWorldTotal: builder.query<CovidStatResponse, void>({
-      query: () => ({ url: API_ROUTES.SUMMARY_TOTAL_URL, method: 'GET' }),
+    getGlobalCovidTotals: builder.query<CovidStatResponse, void>({
+      query: () => ({ url: API_ROUTES.COVID_TOTAL_URL, method: 'GET' }),
       providesTags: ['CovidWorld'],
     }),
-    getCovidCountryTotal: builder.query<CovidStatResponse, CovidReportParams | void>({
-      query: (params = {}) => ({ url: API_ROUTES.SUMMARY_TOTAL_URL, method: 'GET', params }),
+
+    getCountryCovidTotals: builder.query<CovidStatResponse, CovidReportParams | void>({
+      query: (params = {}) => ({ url: API_ROUTES.COVID_TOTAL_URL, method: 'GET', params }),
       providesTags: (_result, _error, params) => [{ type: 'CovidCountry', iso: params?.iso }],
     }),
-    getCovidCountryWithProvince: builder.query<CovidStatWithProvinceResponse, CovidReportParams | void>({
-      query: (params = {}) => ({ url: API_ROUTES.SUMMARY_COUNTRY_URL, method: 'GET', params }),
+
+    getCountryCoviedWithProvince: builder.query<CovidStatWithProvinceResponse, CovidReportParams | void>({
+      query: (params = {}) => ({ url: API_ROUTES.COVID_COUNTRY_DETAIL_URL, method: 'GET', params }),
       providesTags: (_result, _error, params) => [{ type: 'CovidCountryWithProvince', iso: params?.iso }],
     }),
   }),
 });
 
-export const { useGetCovidWorldTotalQuery, useGetCovidCountryTotalQuery, useGetCovidCountryWithProvinceQuery } =
+export const { useGetGlobalCovidTotalsQuery, useGetCountryCovidTotalsQuery, useGetCountryCoviedWithProvinceQuery } =
   covidApi;

@@ -4,7 +4,6 @@ import { useAppSelector } from './storeHooks';
 const useAppTheme = () => {
   const { mode } = useAppSelector((state) => state.theme);
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
-
   const mediaQuery = useMemo(() => window.matchMedia('(prefers-color-scheme: dark)'), []);
 
   useEffect(() => {

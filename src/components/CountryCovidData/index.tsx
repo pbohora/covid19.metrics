@@ -1,14 +1,14 @@
 import { FC, useMemo } from 'react';
+import { skipToken } from '@reduxjs/toolkit/query';
+import { useGetCountryCovidTotalsQuery, useGetCountryCoviedWithProvinceQuery } from '../../state/covid/covidApi';
 import StatSection from '../StatSection';
-import { useGetCovidCountryTotalQuery, useGetCovidCountryWithProvinceQuery } from '../../state/covid/covidApi';
 import WithLoadingErrorWrapper from '../WithLoadingAndError';
-import { ApiErrorResponse } from '../../types/WithLoadingAndError.types';
 import Header from '../Header';
 import { useAppSelector } from '../../hooks/storeHooks';
 import CountrySelector from '../CountrySelector';
-import { skipToken } from '@reduxjs/toolkit/query';
 import StatsBarChart from '../StatsBarChart';
 import Card from '../Card';
+import { ApiErrorResponse } from '../../types/WithLoadingAndError.types';
 import styles from './CountryCovidData.module.css';
 
 const CountryCovidData: FC = () => {
@@ -18,14 +18,14 @@ const CountryCovidData: FC = () => {
     isLoading,
     error,
     isFetching,
-  } = useGetCovidCountryTotalQuery(selectedCountry ? { iso: selectedCountry.iso } : skipToken);
+  } = useGetCountryCovidTotalsQuery(selectedCountry ? { iso: selectedCountry.iso } : skipToken);
 
   const {
     data: covidProvinceData,
     isLoading: isLoadingProvinceData,
     error: errorProvinceData,
     isFetching: isFetchingProvinceData,
-  } = useGetCovidCountryWithProvinceQuery(selectedCountry ? { iso: selectedCountry.iso } : skipToken);
+  } = useGetCountryCoviedWithProvinceQuery(selectedCountry ? { iso: selectedCountry.iso } : skipToken);
 
   const sortedCovidProvinceData = useMemo(() => {
     if (!covidProvinceData?.data) return [];
@@ -41,7 +41,6 @@ const CountryCovidData: FC = () => {
       }));
   }, [covidProvinceData]);
 
-  console.log(isLoading, isFetching);
   return (
     <div>
       <Header title="Country statistics" size="sm" extra={<CountrySelector />} />
@@ -51,7 +50,7 @@ const CountryCovidData: FC = () => {
         error={(error || errorProvinceData) as ApiErrorResponse}
       >
         {covidData?.data && <StatSection covidStat={covidData?.data ?? {}} />}
-        <Card title="Trends" className={styles.trend__container}>
+        <Card title="Top 8 provinces (based on most confirmed cases)" className={styles.chartContainer}>
           <StatsBarChart
             data={sortedCovidProvinceData}
             xKey={'province'}

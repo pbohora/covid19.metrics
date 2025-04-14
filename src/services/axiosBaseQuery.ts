@@ -1,6 +1,5 @@
 import { BaseQueryFn } from '@reduxjs/toolkit/query/react';
-import { AxiosError } from 'axios';
-import axios, { AxiosInstance } from 'axios';
+import axios, { AxiosInstance, AxiosError } from 'axios';
 import { AxiosBaseQueryArgs } from '../types/api.types';
 import { API_BASE_URL } from '../constants/apiRoutes';
 
@@ -19,7 +18,6 @@ export const axiosBaseQuery =
       return { data: result.data };
     } catch (axiosError) {
       const err = axiosError as AxiosError;
-      console.log(err);
       return {
         error: {
           status: err.response?.status || 500,

@@ -4,8 +4,6 @@ import styles from './WithLoadingAndError.module.css';
 import LoadingSpinner from '../LoadingSpinner';
 
 const WithLoadingErrorWrapper: FC<LoadingErrorWrapperProps> = ({ loading, error, children, isFetching }) => {
-  console.log(error, 'error');
-
   if (loading) return <LoadingSpinner />;
   if (error) return <div className={styles.errorMessage}>{JSON.stringify(error?.data)}</div>;
 
@@ -13,7 +11,7 @@ const WithLoadingErrorWrapper: FC<LoadingErrorWrapperProps> = ({ loading, error,
     <div className={styles.wrapper}>
       {children}
       {isFetching && (
-        <div className={styles.fetching__overlay}>
+        <div className={styles.fetchingOverlay}>
           <LoadingSpinner />
         </div>
       )}

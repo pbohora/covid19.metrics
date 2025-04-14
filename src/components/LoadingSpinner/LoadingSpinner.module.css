@@ -6,7 +6,6 @@
 }
 
 .spinnerIcon {
-    font-size: 24px;
     color: var(--color-gray-800);
     animation: spin 1s linear infinite;
 }

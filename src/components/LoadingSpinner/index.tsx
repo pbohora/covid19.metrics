@@ -5,7 +5,7 @@ import styles from './LoadingSpinner.module.css';
 const LoadingSpinner: FC = () => {
   return (
     <div className={styles.spinnerWrapper}>
-      <AiOutlineLoading3Quarters className={styles.spinnerIcon} />
+      <AiOutlineLoading3Quarters className={styles.spinnerIcon} size={30} />
     </div>
   );
 };

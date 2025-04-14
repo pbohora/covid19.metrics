@@ -4,11 +4,10 @@ import CountryCovidData from '../components/CountryCovidData';
 
 const Dashboard: FC = () => {
   return (
-    <div className="dashboard">
+    <section className="dashboard">
       <GlobalCovidData />
-
       <CountryCovidData />
-    </div>
+    </section>
   );
 };
 

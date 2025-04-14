@@ -1,17 +1,17 @@
 import { FC } from 'react';
+import { useGetGlobalCovidTotalsQuery } from '../../state/covid/covidApi';
 import StatSection from '../StatSection';
-import { useGetCovidWorldTotalQuery } from '../../state/covid/covidApi';
+import Header from '../Header';
 import WithLoadingErrorWrapper from '../WithLoadingAndError';
 import { ApiErrorResponse } from '../../types/WithLoadingAndError.types';
-import Header from '../Header';
 
 const GlobalCovidData: FC = () => {
-  const { data: covidData, isLoading, error } = useGetCovidWorldTotalQuery();
+  const { data: covidData, isLoading, isFetching, error } = useGetGlobalCovidTotalsQuery();
 
   return (
     <div>
       <Header title="Global statistics" size="sm" />
-      <WithLoadingErrorWrapper loading={isLoading} error={error as ApiErrorResponse}>
+      <WithLoadingErrorWrapper loading={isLoading} isFetching={isFetching} error={error as ApiErrorResponse}>
         {covidData?.data && <StatSection covidStat={covidData?.data ?? {}} />}
       </WithLoadingErrorWrapper>
     </div>

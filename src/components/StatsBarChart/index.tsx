@@ -20,7 +20,7 @@ const StatsBarChart: FC<StatsBarChartProps> = ({ data = [], xKey, areas, height 
       <BarChart
         data={data}
         margin={{
-          top: 5,
+          top: 10,
           right: 20,
           left: 20,
           bottom: 5,

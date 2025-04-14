@@ -58,7 +58,7 @@
   padding: var(--space-2);
   border: 1px solid var(--border-radius-sm);
   border-radius: var(--border-radius-sm);
-  margin-bottom: 8px;
+  margin-bottom: var(--space-3);
 }
 
 .control:focus {

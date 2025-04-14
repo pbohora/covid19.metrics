@@ -15,7 +15,7 @@
     position: relative;
 }
 
-.fetching__overlay {
+.fetchingOverlay {
     position: absolute;
     top: 0;
     left: 0;

@@ -1,4 +1,6 @@
 :root {
+  --max-layout-width: 100%;
+
   /* Base font variables */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   --font-secondary: 'Georgia', 'Times New Roman', serif;
@@ -41,9 +43,7 @@
   --space-5: 1.25rem;
   --space-6: 1.5rem;
 
-  --max-layout-width: 100%;
-
-  /* Extended color palette - Light theme */
+  /* Extended color palette for Light theme */
   --color-primary-50: #eff6ff;
   --color-primary-100: #dbeafe;
   --color-primary-200: #bfdbfe;
@@ -55,40 +55,16 @@
   --color-primary-800: #1e40af;
   --color-primary-900: #1e3a8a;
 
-  --color-secondary-50: #f5f3ff;
-  --color-secondary-100: #ede9fe;
-  --color-secondary-200: #ddd6fe;
-  --color-secondary-300: #c4b5fd;
-  --color-secondary-400: #a78bfa;
-  --color-secondary-500: #8b5cf6;
-  --color-secondary-600: #7c3aed;
-  --color-secondary-700: #6d28d9;
-  --color-secondary-800: #5b21b6;
-  --color-secondary-900: #4c1d95;
-
-  --color-gray-900: #1e232b;
-  /* Near-black slate */
-  --color-gray-800: #2f3947;
-  /* Dark cool charcoal */
-  --color-gray-700: #414f61;
-  /* Deeper steel tone */
-  --color-gray-600: #586b7c;
-  /* Subtle navy-gray */
-  --color-gray-500: #6f8496;
-  /* Steady storm gray */
-  --color-gray-400: #879cad;
-  /* Calm slate blue */
-  --color-gray-300: #adb9c5;
-  /* Muted blue-gray */
-  --color-gray-200: #d3dce6;
-  /* Dusty light steel */
-  --color-gray-100: #e2e3e6;
-  /* Cooler pale gray */
   --color-gray-50: #f6f7f8;
-  /* Soft gray with faint blue */
-
-
-
+  --color-gray-100: #e2e3e6;
+  --color-gray-200: #d3dce6;
+  --color-gray-300: #adb9c5;
+  --color-gray-400: #879cad;
+  --color-gray-500: #6f8496;
+  --color-gray-600: #586b7c;
+  --color-gray-700: #414f61;
+  --color-gray-800: #2f3947;
+  --color-gray-900: #1e232b;
 
   --color-red-50: #fef2f2;
   --color-red-100: #fcd5d5;
@@ -102,7 +78,7 @@
   --color-red-900: #7f1d1d;
 }
 
-/* Dark theme color adjustments */
+/* Dark theme adjustments */
 [data-theme="dark"] {
   --color-primary-50: #172554;
   --color-primary-100: #1e3a8a;
@@ -115,37 +91,17 @@
   --color-primary-800: #bfdbfe;
   --color-primary-900: #dbeafe;
 
-  --color-secondary-50: #2e1065;
-  --color-secondary-100: #4c1d95;
-  --color-secondary-200: #5b21b6;
-  --color-secondary-300: #6d28d9;
-  --color-secondary-400: #7c3aed;
-  --color-secondary-500: #8b5cf6;
-  --color-secondary-600: #a78bfa;
-  --color-secondary-700: #c4b5fd;
-  --color-secondary-800: #ddd6fe;
-  --color-secondary-900: #ede9fe;
-
-  --color-gray-900: #f6f7f8;
-  /* Soft gray with faint blue */
-  --color-gray-800: #e2e3e6;
-  /* Cooler pale gray */
-  --color-gray-700: #d3dce6;
-  /* Dusty light steel */
-  --color-gray-600: #a3b3c2;
-  /* Muted blue-gray */
-  --color-gray-500: #879cad;
-  /* Calm slate blue */
-  --color-gray-400: #6f8496;
-  /* Steady storm gray */
-  --color-gray-300: #586b7c;
-  /* Subtle navy-gray */
-  --color-gray-200: #414f61;
-  /* Deeper steel tone */
-  --color-gray-100: #2f3947;
-  /* Dark cool charcoal */
   --color-gray-50: #1e232b;
-  /* Near-black slate */
+  --color-gray-100: #2f3947;
+  --color-gray-200: #414f61;
+  --color-gray-300: #586b7c;
+  --color-gray-400: #6f8496;
+  --color-gray-500: #879cad;
+  --color-gray-600: #a3b3c2;
+  --color-gray-700: #d3dce6;
+  --color-gray-800: #e2e3e6;
+  --color-gray-900: #f6f7f8;
+
 
   --color-red-50: #7f1d1d;
   --color-red-100: #991b1b;
@@ -230,6 +186,7 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Layout styles */
 .layout {
   background-color: var(--color-gray-100);
   color: var(--color-gray-700);
@@ -242,6 +199,7 @@ a:hover {
   max-width: var(--max-layout-width);
 }
 
+/* Page center styles */
 .page-center {
   display: flex;
   flex-direction: column;
@@ -250,6 +208,7 @@ a:hover {
   margin: var(--space-6);
 }
 
+/* Dashboard styles */
 .dashboard {
   display: flex;
   flex-direction: column;

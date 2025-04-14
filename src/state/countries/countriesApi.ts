@@ -4,7 +4,7 @@ import { API_ROUTES } from '../../constants/apiRoutes';
 import { CountryParams, CountryResponse } from '../../types/api.types';
 
 export const countriesApi = createApi({
-  reducerPath: '/countries',
+  reducerPath: 'countries',
   baseQuery: axiosBaseQuery(),
   tagTypes: ['Countries'],
   endpoints: (builder) => ({

@@ -1,14 +1,14 @@
 import React from 'react';
-import styles from './Card.module.css';
 import { CardProps } from '../../types/Card.types';
+import styles from './Card.module.css';
 
 const Card: React.FC<CardProps> = ({ title, children, className = '' }) => {
   return (
     <div className={`${styles.card} ${className}`}>
-      <div className={styles.cardHeader}>
-        <div className={styles.cardTitle}>{title}</div>
-      </div>
-      <div className={styles.cardBody}>{children}</div>
+      <header className={styles.cardHeader}>
+        <span>{title}</span>
+      </header>
+      <section className={styles.cardBody}>{children}</section>
     </div>
   );
 };
