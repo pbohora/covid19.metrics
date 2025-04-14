@@ -4,4 +4,5 @@ export const API_BASE_URL = apiUrl || 'https://covid-api.com/api';
 export const API_ROUTES = {
   COUNTRIES_URL: '/regions',
   SUMMARY_TOTAL_URL: `/reports/total`,
+  SUMMARY_COUNTRY_URL: `/reports`,
 };

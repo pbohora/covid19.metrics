@@ -1,6 +1,10 @@
 .navHeader {
-   box-shadow: var(--shadow-md);
+   box-shadow: var(--shadow-sm);
    padding: var(--space-3);
+   position: sticky;
+   top: 0;
+   z-index: 20;
+   background-color: var(--color-gray-200);
 }
 
 .navbar {

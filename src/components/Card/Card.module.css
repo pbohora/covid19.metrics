@@ -2,16 +2,17 @@
   border-radius: var(--border-radius-base);
   box-shadow: var(--shadow-md);
   min-width: 120px;
-  overflow-wrap: break-word
+  overflow-wrap: break-word;
+  background-color: var(--color-gray-200);
 }
 
 .cardHeader {
-  padding: var(--space-4);
+  padding: var(--space-2) var(--space-3);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .cardBody {
-  padding: var(--space-6) var(--space-4);
+  padding: var(--space-3);
 }

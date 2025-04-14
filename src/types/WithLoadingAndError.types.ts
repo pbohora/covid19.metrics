@@ -5,6 +5,7 @@ export interface ApiErrorResponse {
 
 export interface LoadingErrorWrapperProps {
   loading: boolean;
+  isFetching?: boolean;
   error: ApiErrorResponse;
   children: React.ReactNode;
 }

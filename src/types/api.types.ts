@@ -44,6 +44,22 @@ export interface CovidStat {
   fatality_rate: number;
 }
 
+export interface ProvinceData {
+  iso: string;
+  name: string;
+  province: string;
+  lat: string;
+  long: string;
+}
+
+export interface CovidStatWithRegion extends CovidStat {
+  region: ProvinceData;
+}
+
+export interface CovidStatWithProvinceResponse {
+  data: CovidStatWithRegion[];
+}
+
 export interface CovidStatResponse {
   data: CovidStat;
 }

@@ -1,0 +1,23 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: var(--space-3);
+    margin: var(--space-3) 0;
+}
+
+.header__title {
+    font-weight: var(--font-weight-semibold);
+}
+
+.header__title__sm {
+    font-size: var(--font-size-base);
+}
+
+.header__title__md {
+    font-size: var(--font-size-lg);
+}
+
+.header__title__lg {
+    font-size: var(--font-size-xl);
+}

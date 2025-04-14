@@ -1,6 +1,5 @@
+import { CovidStat } from './api.types';
+
 export interface StatSectionProps {
-  confirmedCases: number;
-  totalDeaths: number;
-  activeCases: number;
-  direction?: 'row' | 'column';
+  covidStat: CovidStat;
 }

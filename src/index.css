@@ -66,16 +66,29 @@
   --color-secondary-800: #5b21b6;
   --color-secondary-900: #4c1d95;
 
-  --color-gray-50: #f9fafb;
-  --color-gray-100: #f3f4f6;
-  --color-gray-200: #e5e7eb;
-  --color-gray-300: #d1d5db;
-  --color-gray-400: #9ca3af;
-  --color-gray-500: #6b7280;
-  --color-gray-600: #4b5563;
-  --color-gray-700: #374151;
-  --color-gray-800: #1f2937;
-  --color-gray-900: #111827;
+  --color-gray-900: #1e232b;
+  /* Near-black slate */
+  --color-gray-800: #2f3947;
+  /* Dark cool charcoal */
+  --color-gray-700: #414f61;
+  /* Deeper steel tone */
+  --color-gray-600: #586b7c;
+  /* Subtle navy-gray */
+  --color-gray-500: #6f8496;
+  /* Steady storm gray */
+  --color-gray-400: #879cad;
+  /* Calm slate blue */
+  --color-gray-300: #adb9c5;
+  /* Muted blue-gray */
+  --color-gray-200: #d3dce6;
+  /* Dusty light steel */
+  --color-gray-100: #e2e3e6;
+  /* Cooler pale gray */
+  --color-gray-50: #f6f7f8;
+  /* Soft gray with faint blue */
+
+
+
 
   --color-red-50: #fef2f2;
   --color-red-100: #fcd5d5;
@@ -113,16 +126,26 @@
   --color-secondary-800: #ddd6fe;
   --color-secondary-900: #ede9fe;
 
-  --color-gray-50: #111827;
-  --color-gray-100: #1f2937;
-  --color-gray-200: #374151;
-  --color-gray-300: #4b5563;
-  --color-gray-400: #6b7280;
-  --color-gray-500: #9ca3af;
-  --color-gray-600: #d1d5db;
-  --color-gray-700: #e5e7eb;
-  --color-gray-800: #f3f4f6;
-  --color-gray-900: #f9fafb;
+  --color-gray-900: #f6f7f8;
+  /* Soft gray with faint blue */
+  --color-gray-800: #e2e3e6;
+  /* Cooler pale gray */
+  --color-gray-700: #d3dce6;
+  /* Dusty light steel */
+  --color-gray-600: #a3b3c2;
+  /* Muted blue-gray */
+  --color-gray-500: #879cad;
+  /* Calm slate blue */
+  --color-gray-400: #6f8496;
+  /* Steady storm gray */
+  --color-gray-300: #586b7c;
+  /* Subtle navy-gray */
+  --color-gray-200: #414f61;
+  /* Deeper steel tone */
+  --color-gray-100: #2f3947;
+  /* Dark cool charcoal */
+  --color-gray-50: #1e232b;
+  /* Near-black slate */
 
   --color-red-50: #7f1d1d;
   --color-red-100: #991b1b;
@@ -208,7 +231,7 @@ a:hover {
 }
 
 .layout {
-  background-color: var(--color-gray-50);
+  background-color: var(--color-gray-100);
   color: var(--color-gray-700);
   min-height: 100vh;
 }
@@ -225,6 +248,31 @@ a:hover {
   justify-content: center;
   align-items: center;
   margin: var(--space-6);
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--color-gray-200);
+  border-radius: var(--border-radius-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gray-400);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-500);
 }
 
 @media (min-width: 768px) {

@@ -19,11 +19,11 @@ export const axiosBaseQuery =
       return { data: result.data };
     } catch (axiosError) {
       const err = axiosError as AxiosError;
-
+      console.log(err);
       return {
         error: {
           status: err.response?.status || 500,
-          data: err.response?.data || err.message || 'Unknown error',
+          data: err.message || err.response?.data || 'Unknown error',
         },
       };
     }

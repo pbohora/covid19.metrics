@@ -1,10 +1,8 @@
-import { ReactElement } from 'react';
-
 export interface Option {
   key: string;
   label: string;
   value: string;
-  icon?: ReactElement;
+  icon?: React.ReactNode;
 }
 
 export interface DropdownProps {
