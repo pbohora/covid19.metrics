@@ -18,17 +18,25 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
-describe('GlobalCovidData - RTK Query real data', () => {
-  it('renders header and fetches data via RTK Query', async () => {
+describe('GlobalCovidData Component', () => {
+  let container: HTMLElement;
+
+  beforeEach(() => {
     const store = setupStore();
+    const renderedGlobalCovidData = renderWithProviders(<GlobalCovidData />, { store });
+    container = renderedGlobalCovidData.container;
+  });
 
-    renderWithProviders(<GlobalCovidData />, { store });
-
+  it('fetched and renders data', async () => {
     await waitFor(() => {
       expect(screen.queryByTestId('loading')).not.toBeInTheDocument();
     });
 
     const confirmed = await screen.findByText('12');
     expect(confirmed).toBeInTheDocument();
+  });
+
+  it('matches snapshot', () => {
+    expect(container).toMatchSnapshot();
   });
 });

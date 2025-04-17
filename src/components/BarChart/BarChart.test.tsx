@@ -3,7 +3,7 @@ import { vi, describe, it, expect } from 'vitest';
 import BarChartComponent from '.';
 import { StatsBarChartProps } from '../../types/StatsBarChart.types';
 
-// mock rechart
+// add mocks fo child components
 vi.mock('recharts', async () => {
   const actual = await vi.importActual('recharts');
   return {

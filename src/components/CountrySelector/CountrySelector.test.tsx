@@ -34,9 +34,12 @@ vi.mock('../Dropdown', () => ({
 
 describe('CountrySelector component', () => {
   let store: ReturnType<typeof setupStore>;
+  let container: HTMLElement;
 
   beforeEach(() => {
     store = setupStore();
+    const renderedCountrySelector = renderWithProviders(<CountrySelector />, { store });
+    container = renderedCountrySelector.container;
   });
 
   afterEach(() => {
@@ -44,13 +47,10 @@ describe('CountrySelector component', () => {
   });
 
   it('renders loading state initially', () => {
-    renderWithProviders(<CountrySelector />, { store });
     expect(screen.getByTestId('loading')).toBeInTheDocument();
   });
 
   it('renders countries and selects the first by default if none is selected', async () => {
-    renderWithProviders(<CountrySelector />, { store });
-
     await waitFor(() => {
       expect(screen.getByTestId('country-dropdown')).toBeInTheDocument();
       const selected = store.getState().selectedCountry.selectedCountry;
@@ -59,8 +59,6 @@ describe('CountrySelector component', () => {
   });
 
   it('renders dropdown and allows selection change', async () => {
-    renderWithProviders(<CountrySelector />, { store });
-
     await waitFor(() => {
       const dropdown = screen.getByTestId('country-dropdown');
       fireEvent.click(dropdown);
@@ -68,5 +66,9 @@ describe('CountrySelector component', () => {
       const selected = store.getState().selectedCountry.selectedCountry;
       expect(selected).toEqual({ iso: 'FIN', name: 'Finland' });
     });
+  });
+
+  it('matches snapshot', () => {
+    expect(container).toMatchSnapshot();
   });
 });

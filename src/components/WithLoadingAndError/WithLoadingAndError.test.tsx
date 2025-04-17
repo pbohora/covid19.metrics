@@ -42,7 +42,6 @@ describe('WithLoadingErrorWrapper component', () => {
       </WithLoadingErrorWrapper>,
     );
 
-    // Spinner inside the fetching overlay
     const spinners = screen.getAllByTestId('loading-spinner');
     expect(spinners.length).toBe(1);
     expect(screen.getByText('Content')).toBeInTheDocument();
