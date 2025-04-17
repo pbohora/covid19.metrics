@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { vi, describe, expect } from 'vitest';
 import Dropdown from '.';
-import { Option } from '../../types/Dropdown.types';
+import { Option } from '../../types/components/Dropdown.types';
 
 const options: Option[] = [
   { key: '1', label: 'Option 1', value: 'Option 1' },

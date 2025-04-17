@@ -2,7 +2,7 @@ import { FC, useEffect, useMemo } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/storeHooks';
 import { useGetCountriesQuery } from '../../state/countries/countriesApi';
 import WithLoadingErrorWrapper from '../WithLoadingAndError';
-import { ApiErrorResponse } from '../../types/WithLoadingAndError.types';
+import { ApiErrorResponse } from '../../types/components/WithLoadingAndError.types';
 import { setSelectedCountry } from '../../state/countries/selectedCountrySlice';
 import Dropdown from '../Dropdown';
 

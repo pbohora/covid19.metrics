@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { LoadingErrorWrapperProps } from '../../types/WithLoadingAndError.types';
+import { LoadingErrorWrapperProps } from '../../types/components/WithLoadingAndError.types';
 import styles from './WithLoadingAndError.module.css';
 import LoadingSpinner from '../LoadingSpinner';
 

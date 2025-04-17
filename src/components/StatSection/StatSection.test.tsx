@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import { vi, describe, it, expect } from 'vitest';
 import StatSection from '.';
-import { StatSectionProps } from '../../types/StatSection.types';
-import { CardProps } from '../../types/Card.types';
+import { StatSectionProps } from '../../types/components/StatSection.types';
+import { CardProps } from '../../types/components/Card.types';
 
 vi.mock('../Card', () => ({
   default: ({ title, children, className }: CardProps) => (
@@ -61,8 +61,7 @@ describe('StatSection', () => {
       active_diff: 10,
       fatality_rate: 1,
     };
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
+
     render(<StatSection covidStat={mockStats} />);
 
     expect(screen.getAllByTestId('no-data')).toHaveLength(3);

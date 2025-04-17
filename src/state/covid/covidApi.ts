@@ -18,12 +18,12 @@ export const covidApi = createApi({
       providesTags: (_result, _error, params) => [{ type: 'CovidCountry', iso: params?.iso }],
     }),
 
-    getCountryCoviedWithProvince: builder.query<CovidStatWithProvinceResponse, CovidReportParams | void>({
+    getCountryCovidWithProvince: builder.query<CovidStatWithProvinceResponse, CovidReportParams | void>({
       query: (params = {}) => ({ url: API_ROUTES.COVID_COUNTRY_DETAIL_URL, method: 'GET', params }),
       providesTags: (_result, _error, params) => [{ type: 'CovidCountryWithProvince', iso: params?.iso }],
     }),
   }),
 });
 
-export const { useGetGlobalCovidTotalsQuery, useGetCountryCovidTotalsQuery, useGetCountryCoviedWithProvinceQuery } =
+export const { useGetGlobalCovidTotalsQuery, useGetCountryCovidTotalsQuery, useGetCountryCovidWithProvinceQuery } =
   covidApi;

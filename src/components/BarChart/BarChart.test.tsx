@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { vi, describe, it, expect } from 'vitest';
 import BarChartComponent from '.';
-import { StatsBarChartProps } from '../../types/StatsBarChart.types';
+import { StatsBarChartProps } from '../../types/components/StatsBarChart.types';
 
 // add mocks fo child components
 vi.mock('recharts', async () => {

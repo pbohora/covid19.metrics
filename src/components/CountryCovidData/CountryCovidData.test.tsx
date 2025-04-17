@@ -4,7 +4,7 @@ import { screen, waitFor } from '@testing-library/react';
 import CountryCovidData from '.';
 import { setupStore } from '../../state/store';
 
-import { LoadingErrorWrapperProps } from '../../types/WithLoadingAndError.types';
+import { LoadingErrorWrapperProps } from '../../types/components/WithLoadingAndError.types';
 import { server } from '../../tests/mocks/mockServer';
 
 //mock child components

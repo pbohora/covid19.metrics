@@ -1,7 +1,7 @@
 import { FC, useMemo } from 'react';
 import Card from '../Card';
 import NoData from '../Nodata';
-import { StatSectionProps } from '../../types/StatSection.types';
+import { StatSectionProps } from '../../types/components/StatSection.types';
 import styles from './StatSection.module.css';
 
 const StatSection: FC<StatSectionProps> = ({ covidStat }) => {

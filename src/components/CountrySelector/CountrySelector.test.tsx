@@ -3,8 +3,8 @@ import { fireEvent, screen, waitFor } from '@testing-library/react';
 import { renderWithProviders } from '../../tests/setup/test-utils';
 import CountrySelector from '.';
 import { setupStore } from '../../state/store';
-import { LoadingErrorWrapperProps } from '../../types/WithLoadingAndError.types';
-import { DropdownProps, Option } from '../../types/Dropdown.types';
+import { LoadingErrorWrapperProps } from '../../types/components/WithLoadingAndError.types';
+import { DropdownProps, Option } from '../../types/components/Dropdown.types';
 
 // Mock child components
 vi.mock('../WithLoadingAndError', () => ({

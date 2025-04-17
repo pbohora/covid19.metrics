@@ -4,7 +4,7 @@ import Navbar from '.';
 import { renderWithProviders } from '../../tests/setup/test-utils';
 import { changeThemeMode } from '../../state/theme/themeSlice';
 import { ThemeMode } from '../../types/theme.types';
-import { DropdownProps, Option } from '../../types/Dropdown.types';
+import { DropdownProps, Option } from '../../types/components/Dropdown.types';
 
 const defaultState = {
   theme: { mode: 'light' as ThemeMode },

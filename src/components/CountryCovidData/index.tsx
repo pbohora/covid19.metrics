@@ -1,6 +1,6 @@
 import { FC, useMemo } from 'react';
 import { skipToken } from '@reduxjs/toolkit/query';
-import { useGetCountryCovidTotalsQuery, useGetCountryCoviedWithProvinceQuery } from '../../state/covid/covidApi';
+import { useGetCountryCovidTotalsQuery, useGetCountryCovidWithProvinceQuery } from '../../state/covid/covidApi';
 import StatSection from '../StatSection';
 import WithLoadingErrorWrapper from '../WithLoadingAndError';
 import Header from '../Header';
@@ -8,10 +8,9 @@ import { useAppSelector } from '../../hooks/storeHooks';
 import CountrySelector from '../CountrySelector';
 import BarChart from '../BarChart';
 import Card from '../Card';
-import { ApiErrorResponse } from '../../types/WithLoadingAndError.types';
+import { ApiErrorResponse } from '../../types/components/WithLoadingAndError.types';
 import styles from './CountryCovidData.module.css';
-
-const provinceCount = 8;
+import { CHART_COLORS, PROVINCE_COUNT } from '../../constants/chart';
 
 const CountryCovidData: FC = () => {
   const { selectedCountry } = useAppSelector((state) => state.selectedCountry);
@@ -27,14 +26,14 @@ const CountryCovidData: FC = () => {
     isLoading: isLoadingProvinceData,
     error: errorProvinceData,
     isFetching: isFetchingProvinceData,
-  } = useGetCountryCoviedWithProvinceQuery(selectedCountry ? { iso: selectedCountry.iso } : skipToken);
+  } = useGetCountryCovidWithProvinceQuery(selectedCountry ? { iso: selectedCountry.iso } : skipToken);
 
   const sortedCovidProvinceData = useMemo(() => {
     if (!covidProvinceData?.data) return [];
 
     return [...covidProvinceData.data]
       .sort((a, b) => b.confirmed - a.confirmed)
-      .slice(0, provinceCount)
+      .slice(0, PROVINCE_COUNT)
       .map((province) => ({
         confirmed: province.confirmed,
         recovered: province.recovered,
@@ -42,6 +41,12 @@ const CountryCovidData: FC = () => {
         province: province.region.province,
       }));
   }, [covidProvinceData]);
+
+  const chartAreas = [
+    { key: 'confirmed', color: CHART_COLORS.confirmed },
+    { key: 'recovered', color: CHART_COLORS.recovered },
+    { key: 'deaths', color: CHART_COLORS.deaths },
+  ];
 
   return (
     <div>
@@ -54,18 +59,10 @@ const CountryCovidData: FC = () => {
         {covidData?.data && <StatSection covidStat={covidData.data} />}
 
         <Card
-          title={`Top ${provinceCount} provinces (based on most confirmed cases)`}
+          title={`Top ${PROVINCE_COUNT} provinces (based on most confirmed cases)`}
           className={styles.chartContainer}
         >
-          <BarChart
-            data={sortedCovidProvinceData}
-            xKey={'province'}
-            areas={[
-              { key: 'confirmed', color: '#3b82f6' },
-              { key: 'recovered', color: '#7c3aed' },
-              { key: 'deaths', color: '#dc2626' },
-            ]}
-          />
+          <BarChart data={sortedCovidProvinceData} xKey={'province'} areas={chartAreas} />
         </Card>
       </WithLoadingErrorWrapper>
     </div>

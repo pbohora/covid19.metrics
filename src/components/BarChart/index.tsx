@@ -9,7 +9,7 @@ import {
   BarChart as ReBarChart,
   Bar,
 } from 'recharts';
-import { StatsBarChartProps } from '../../types/StatsBarChart.types';
+import { StatsBarChartProps } from '../../types/components/StatsBarChart.types';
 import useAppTheme from '../../hooks/useAppTheme';
 import NoData from '../Nodata';
 

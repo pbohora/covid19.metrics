@@ -3,7 +3,7 @@ import { useGetGlobalCovidTotalsQuery } from '../../state/covid/covidApi';
 import StatSection from '../StatSection';
 import Header from '../Header';
 import WithLoadingErrorWrapper from '../WithLoadingAndError';
-import { ApiErrorResponse } from '../../types/WithLoadingAndError.types';
+import { ApiErrorResponse } from '../../types/components/WithLoadingAndError.types';
 
 const GlobalCovidData: FC = () => {
   const { data: covidData, isLoading, isFetching, error } = useGetGlobalCovidTotalsQuery();

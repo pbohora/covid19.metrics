@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, FC, useMemo } from 'react';
 import { AiOutlineCaretDown, AiOutlineCaretUp } from 'react-icons/ai';
-import { DropdownProps, Option } from '../../types/Dropdown.types';
+import { DropdownProps, Option } from '../../types/components/Dropdown.types';
 import styles from './Dropdown.module.css';
 
 const DropdownIcon = ({ isOpen }: { isOpen: boolean }) => (isOpen ? <AiOutlineCaretUp /> : <AiOutlineCaretDown />);

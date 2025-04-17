@@ -3,7 +3,7 @@ import { renderWithProviders } from '../../tests/setup/test-utils';
 import { screen, waitFor } from '@testing-library/react';
 import GlobalCovidData from '.';
 import { setupStore } from '../../state/store';
-import { LoadingErrorWrapperProps } from '../../types/WithLoadingAndError.types';
+import { LoadingErrorWrapperProps } from '../../types/components/WithLoadingAndError.types';
 import { server } from '../../tests/mocks/mockServer';
 
 vi.mock('../WithLoadingAndError', () => ({
