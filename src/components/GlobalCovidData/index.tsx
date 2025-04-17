@@ -12,7 +12,7 @@ const GlobalCovidData: FC = () => {
     <div>
       <Header title="Global statistics" size="sm" />
       <WithLoadingErrorWrapper loading={isLoading} isFetching={isFetching} error={error as ApiErrorResponse}>
-        {covidData?.data && <StatSection covidStat={covidData?.data ?? {}} />}
+        {covidData?.data && <StatSection covidStat={covidData.data} />}
       </WithLoadingErrorWrapper>
     </div>
   );

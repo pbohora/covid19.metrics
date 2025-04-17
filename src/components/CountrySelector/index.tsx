@@ -14,7 +14,7 @@ const CountrySelector: FC = () => {
   const countryOptions = useMemo(
     () =>
       countryData?.data?.map((country) => ({
-        key: country.iso,
+        key: `${country.iso}-${country.name}`,
         label: country.name,
         value: country.iso,
       })),
@@ -35,7 +35,11 @@ const CountrySelector: FC = () => {
         options={countryOptions || []}
         defaultOption={
           selectedCountry
-            ? { key: selectedCountry.iso, label: selectedCountry.name, value: selectedCountry.iso }
+            ? {
+                key: `${selectedCountry.iso}-${selectedCountry.name}`,
+                label: selectedCountry.name,
+                value: selectedCountry.iso,
+              }
             : undefined
         }
         onChange={(option) => dispatch(setSelectedCountry({ iso: option.value, name: option.label }))}

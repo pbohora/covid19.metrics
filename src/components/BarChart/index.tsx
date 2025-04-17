@@ -1,10 +1,19 @@
 import { FC } from 'react';
-import { XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, BarChart, Bar } from 'recharts';
+import {
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  Legend,
+  BarChart as ReBarChart,
+  Bar,
+} from 'recharts';
 import { StatsBarChartProps } from '../../types/StatsBarChart.types';
 import useAppTheme from '../../hooks/useAppTheme';
 import NoData from '../Nodata';
 
-const StatsBarChart: FC<StatsBarChartProps> = ({ data = [], xKey, areas, height = 500 }) => {
+const BarChart: FC<StatsBarChartProps> = ({ data = [], xKey, areas, height = 500 }) => {
   const theme = useAppTheme();
   const isDarkMode = theme === 'dark';
 
@@ -17,7 +26,7 @@ const StatsBarChart: FC<StatsBarChartProps> = ({ data = [], xKey, areas, height 
 
   return (
     <ResponsiveContainer width="100%" height={height}>
-      <BarChart
+      <ReBarChart
         data={data}
         margin={{
           top: 10,
@@ -42,9 +51,9 @@ const StatsBarChart: FC<StatsBarChartProps> = ({ data = [], xKey, areas, height 
         {areas.map((area) => (
           <Bar key={area.key} fill={area.color} opacity={0.6} dataKey={area.key} />
         ))}
-      </BarChart>
+      </ReBarChart>
     </ResponsiveContainer>
   );
 };
 
-export default StatsBarChart;
+export default BarChart;

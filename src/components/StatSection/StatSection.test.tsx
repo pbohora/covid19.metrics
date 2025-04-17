@@ -48,8 +48,8 @@ describe('StatSection', () => {
   });
 
   it('renders NoData when a stat value is null or undefined', () => {
-    const incompleteStats = {
-      confirmed: 0,
+    const mockStats = {
+      confirmed: null,
       active: null,
       deaths: 1000,
       recovered: null,
@@ -63,7 +63,7 @@ describe('StatSection', () => {
     };
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
-    render(<StatSection covidStat={incompleteStats} />);
+    render(<StatSection covidStat={mockStats} />);
 
     expect(screen.getAllByTestId('no-data')).toHaveLength(3);
     expect(screen.getByText('1,000')).toBeInTheDocument();

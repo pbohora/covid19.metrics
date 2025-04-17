@@ -6,10 +6,12 @@ import WithLoadingErrorWrapper from '../WithLoadingAndError';
 import Header from '../Header';
 import { useAppSelector } from '../../hooks/storeHooks';
 import CountrySelector from '../CountrySelector';
-import StatsBarChart from '../StatsBarChart';
+import BarChart from '../BarChart';
 import Card from '../Card';
 import { ApiErrorResponse } from '../../types/WithLoadingAndError.types';
 import styles from './CountryCovidData.module.css';
+
+const provinceCount = 8;
 
 const CountryCovidData: FC = () => {
   const { selectedCountry } = useAppSelector((state) => state.selectedCountry);
@@ -32,7 +34,7 @@ const CountryCovidData: FC = () => {
 
     return [...covidProvinceData.data]
       .sort((a, b) => b.confirmed - a.confirmed)
-      .slice(0, 8)
+      .slice(0, provinceCount)
       .map((province) => ({
         confirmed: province.confirmed,
         recovered: province.recovered,
@@ -49,9 +51,13 @@ const CountryCovidData: FC = () => {
         loading={isLoading || isLoadingProvinceData}
         error={(error || errorProvinceData) as ApiErrorResponse}
       >
-        {covidData?.data && <StatSection covidStat={covidData?.data ?? {}} />}
-        <Card title="Top 8 provinces (based on most confirmed cases)" className={styles.chartContainer}>
-          <StatsBarChart
+        {covidData?.data && <StatSection covidStat={covidData.data} />}
+
+        <Card
+          title={`Top ${provinceCount} provinces (based on most confirmed cases)`}
+          className={styles.chartContainer}
+        >
+          <BarChart
             data={sortedCovidProvinceData}
             xKey={'province'}
             areas={[
